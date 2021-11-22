@@ -2,17 +2,12 @@
 #include <iostream>
 
 Conta::Conta(std::string numeroConta, std::string cpfTitular,
-             std::string nomeTitular) {
-  this->numeroConta = numeroConta;
-  this->cpfTitular = cpfTitular;
-  this->nomeTitular = nomeTitular;
-}
+             std::string nomeTitular)
+    : numeroConta(numeroConta), cpfTitular(cpfTitular),
+      nomeTitular(nomeTitular), saldo(0) {}
 float Conta::getSaldo() const { return saldo; }
-void Conta::setNome(std::string nome) { nomeTitular = nome; }
 std::string Conta::getNome() const { return nomeTitular; }
-void Conta::setCPF(std::string cpf) { cpfTitular = cpf; }
 std::string Conta::getCPF() const { return cpfTitular; }
-void Conta::setNumero(std::string numero) { numeroConta = numero; }
 std::string Conta::getNumero() const { return numeroConta; }
 void Conta::sacar(float valorSacar) {
   if (valorSacar <= 0) {

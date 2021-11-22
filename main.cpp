@@ -4,15 +4,26 @@
 
 using namespace std;
 
+void exibeSalario(const Conta saldo) {
+  cout << "Saldo=" << saldo.getSaldo() << endl;
+}
+
 int main() {
 
-  Conta umaConta;
+  Conta umaConta("12345678", "986545497", "Daniel");
   float saldo;
+  // umaConta.setCPF("Daniel");
 
-  saldo = umaConta.getSaldo();
+  exibeSalario(umaConta);
+  // saldo = umaConta.getSaldo();
 
-  cout << "\n Sistema Bancário " << endl;
-  cout << "SALDO: " << saldo << endl;
+  // cout << "\n Sistema Bancário " << endl;
+  // cout << "SALDO: " << saldo << endl;
+  cout << "Nome: " << umaConta.getNome() << endl;
+  cout << "CPF: " << umaConta.getCPF() << endl;
+  cout << "Numero: " << umaConta.getNumero() << endl;
+  umaConta.depositar(350);
+  cout << "Saldo: " << umaConta.getSaldo() << endl;
   // umaConta.sacar(150);
   // umaConta.depositar(350);
 

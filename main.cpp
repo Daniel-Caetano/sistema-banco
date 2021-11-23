@@ -11,6 +11,8 @@ void exibeSalario(const Conta saldo) {
 int main() {
 
   Conta umaConta("12345678", "986545497", "Daniel");
+  Conta outraConta("12345678", "986545497", "Daniel");
+  Conta maisUmaConta("12345678", "986545497", "Daniel");
   float saldo;
   // umaConta.setCPF("Daniel");
 
@@ -24,6 +26,7 @@ int main() {
   cout << "Numero: " << umaConta.getNumero() << endl;
   umaConta.depositar(350);
   cout << "Saldo: " << umaConta.getSaldo() << endl;
+  cout << "Qtd contas: " << Conta::getQtdContas() << endl;
   // umaConta.sacar(150);
   // umaConta.depositar(350);
 

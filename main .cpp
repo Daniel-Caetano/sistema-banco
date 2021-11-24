@@ -1,5 +1,6 @@
 #include "Conta.cpp"
 #include "Cpf.cpp"
+#include "Funcionario.cpp"
 #include "Pessoa.cpp"
 #include "Titular.cpp"
 #include <iostream>
@@ -14,11 +15,12 @@ void exibeSalario(const Conta saldo) {
 int main() {
   // Cpf numCpf("999.999.999-99");
   // agora sim
+  Funcionario funcionario(Cpf("999.999.999-99"), "Daniel", 9000);
   Titular titular(Cpf("999.999.999-99"), "Daniel");
   Conta umaConta("12345678", titular);
   Conta outraConta("12345678", titular);
   Conta maisUmaConta("12345678", titular);
-  float saldo;
+  // Funcionario umaConta.getQtdContas();
   // umaConta.setCPF("Daniel");
 
   exibeSalario(umaConta);
@@ -31,6 +33,7 @@ int main() {
   umaConta.depositar(350);
   cout << "Saldo: " << umaConta.getSaldo() << endl;
   cout << "Qtd contas: " << Conta::getQtdContas() << endl;
+
   // umaConta.sacar(150);
   // umaConta.depositar(350);
 

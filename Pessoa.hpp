@@ -4,7 +4,7 @@
 #include <iostream>
 
 class Pessoa {
-private:
+protected:
   std::string cpf;
   std::string nome;
   Cpf numCpf;

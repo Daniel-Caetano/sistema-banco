@@ -3,7 +3,7 @@
 #include "Pessoa.hpp"
 #include <iostream>
 
-class Titular : Pessoa {
+class Titular : public Pessoa {
 private:
 public:
   Titular(Cpf numCpf, std::string nome);

@@ -1,4 +1,6 @@
 #include "Conta.cpp"
+#include "Cpf.cpp"
+#include "Titular.cpp"
 #include <iostream>
 #include <string>
 
@@ -9,22 +11,23 @@ void exibeSalario(const Conta saldo) {
 }
 
 int main() {
-
-  Conta outraConta("12345678", "986545497", "Daniel");
-  Conta maisUmaConta("12345678", "986545497", "Daniel");
+  // Cpf numCpf("999.999.999-99");
+  Titular titular(Cpf("999.999.999-99"), "Daniel");
+  Conta umaConta("12345678", titular);
+  Conta outraConta("12345678", titular);
+  Conta maisUmaConta("12345678", titular);
   float saldo;
   // umaConta.setCPF("Daniel");
 
-  // exibeSalario(umaConta);
+  exibeSalario(umaConta);
   // saldo = umaConta.getSaldo();
 
   // cout << "\n Sistema Bancário " << endl;
   // cout << "SALDO: " << saldo << endl;
-  // cout << "Nome: " << umaConta.getNome() << endl;
-  // cout << "CPF: " << umaConta.getCPF() << endl;
-  // cout << "Numero: " << umaConta.getNumero() << endl;
-  // umaConta.depositar(350);
-  // cout << "Saldo: " << umaConta.getSaldo() << endl;
+
+  cout << "Numero: " << umaConta.getNumero() << endl;
+  umaConta.depositar(350);
+  cout << "Saldo: " << umaConta.getSaldo() << endl;
   cout << "Qtd contas: " << Conta::getQtdContas() << endl;
   // umaConta.sacar(150);
   // umaConta.depositar(350);

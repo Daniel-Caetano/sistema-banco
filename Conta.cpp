@@ -3,15 +3,15 @@
 
 int Conta::qtdContas = 0;
 
-Conta::Conta(std::string numeroConta, std::string cpfTitular,
-             std::string nomeTitular)
-    : numeroConta(numeroConta), cpfTitular(cpfTitular),
-      nomeTitular(nomeTitular), saldo(0) {
+Conta::Conta(std::string numeroConta, Titular titular)
+    : numeroConta(numeroConta), titular(titular), saldo(0) {
   qtdContas++;
 }
+Conta::~Conta() { qtdContas--; }
+
 float Conta::getSaldo() const { return saldo; }
-std::string Conta::getNome() const { return nomeTitular; }
-std::string Conta::getCPF() const { return cpfTitular; }
+// std::string Conta::getNome() const { return nomeTitular; }
+// std::string Conta::getCPF() const { return cpfTitular; }
 std::string Conta::getNumero() const { return numeroConta; }
 int Conta::getQtdContas() { return qtdContas; }
 void Conta::sacar(float valorSacar) {

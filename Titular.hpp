@@ -1,17 +1,10 @@
 #pragma once
 #include "Cpf.hpp"
+#include "Pessoa.hpp"
 #include <iostream>
 
-class Titular {
+class Titular : Pessoa {
 private:
-  std::string cpf;
-  std::string nome;
-  Cpf numCpf;
-
 public:
   Titular(Cpf numCpf, std::string nome);
-  std::string getNome() const;
-
-private:
-  void verifica_tamanho_nome();
 };

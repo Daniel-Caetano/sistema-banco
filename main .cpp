@@ -1,5 +1,6 @@
 #include "Conta.cpp"
 #include "Cpf.cpp"
+#include "Pessoa.cpp"
 #include "Titular.cpp"
 #include <iostream>
 #include <string>

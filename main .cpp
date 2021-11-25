@@ -4,6 +4,7 @@
 #include "ContaPoupanca.hpp"
 #include "Cpf.hpp"
 #include "Funcionario.hpp"
+#include "Gerente.hpp"
 #include "Titular.hpp"
 #include <iostream>
 #include <string>
@@ -43,6 +44,8 @@ int main() {
   exibe_saldo(contaDois);
   exibe_saldo(contaTres);
 
+  Gerente daniel(Cpf("999.999.999-99"), "Daniel Caetano", 1500, 2, "123456");
+  cout << "Nome Gerente: " << daniel.getNome() << endl;
   cout << "Número de contas: " << Conta::getQtdContas() << endl;
 
   return 0;

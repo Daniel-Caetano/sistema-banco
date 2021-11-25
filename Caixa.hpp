@@ -1,10 +1,8 @@
 #pragma once
 #include "Funcionario.hpp"
 
-class Caixa final : public Funcionario
-{
+class Caixa final : public Funcionario {
 public:
-    Caixa(Cpf cpf, std::string nome, float salario);
-    float bonificacao() const;
+  Caixa(Cpf cpf, std::string nome, float salario, short int diaPagamento);
+  float bonificacao() const;
 };
-

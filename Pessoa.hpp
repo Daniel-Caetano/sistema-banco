@@ -1,13 +1,12 @@
 #pragma once
 #include "Cpf.hpp"
-
 #include <iostream>
+#include <string>
 
 class Pessoa {
 protected:
-  std::string cpf;
-  std::string nome;
   Cpf numCpf;
+  std::string nome;
 
 public:
   Pessoa(Cpf numCpf, std::string nome);

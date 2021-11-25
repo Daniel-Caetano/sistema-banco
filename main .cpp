@@ -1,41 +1,49 @@
-#include "Conta.cpp"
-#include "Cpf.cpp"
-#include "Funcionario.cpp"
-#include "Pessoa.cpp"
-#include "Titular.cpp"
+//#include "Autenticavel.hpp"
+#include "Conta.hpp"
+#include "ContaCorrente.hpp"
+#include "ContaPoupanca.hpp"
+#include "Cpf.hpp"
+#include "Funcionario.hpp"
+#include "Titular.hpp"
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-void exibeSalario(const Conta saldo) {
-  cout << "Saldo=" << saldo.getSaldo() << endl;
+void exibe_saldo(const Conta &conta) {
+  cout << "O saldo da conta é: " << conta.getSaldo() << endl;
+}
+
+void realiza_saque(Conta &conta) { conta.sacar(200); }
+void FazLogin(Autenticavel &alguem, string senha) {
+  if (alguem.autentica(senha)) {
+    cout << "Login realizado com sucesso" << endl;
+  } else {
+    cout << "Senha inválida" << endl;
+  }
 }
 
 int main() {
-  // Cpf numCpf("999.999.999-99");
-  // agora sim
-  Funcionario funcionario(Cpf("999.999.999-99"), "Daniel", 9000);
-  Titular titular(Cpf("999.999.999-99"), "Daniel");
-  Conta umaConta("12345678", titular);
-  Conta outraConta("12345678", titular);
-  Conta maisUmaConta("12345678", titular);
-  // Funcionario umaConta.getQtdContas();
-  // umaConta.setCPF("Daniel");
+  Titular titular(Cpf("123.456.789-10"), "Daniel", "XXXXXX");
 
-  exibeSalario(umaConta);
-  // saldo = umaConta.getSaldo();
+  ContaPoupanca contaUm("123456", titular);
+  contaUm.depositar(2000);
+  realiza_saque(contaUm);
 
-  // cout << "\n Sistema Bancário " << endl;
-  // cout << "SALDO: " << saldo << endl;
+  exibe_saldo(contaUm);
 
-  cout << "Numero: " << umaConta.getNumero() << endl;
-  umaConta.depositar(350);
-  cout << "Saldo: " << umaConta.getSaldo() << endl;
-  cout << "Qtd contas: " << Conta::getQtdContas() << endl;
+  Titular titularDois(Cpf("098.765.432-10"), "Vinicius Dias", "outrasenha");
+  ContaCorrente contaDois("654321", titularDois);
+  contaDois.depositar(300);
 
-  // umaConta.sacar(150);
-  // umaConta.depositar(350);
+  ContaCorrente contaTres("546312", titular);
 
-  // cout << "SALDO ATUAL: " << umaConta.saldo << endl;
+  contaDois.transferePara(contaTres, 250);
+
+  exibe_saldo(contaDois);
+  exibe_saldo(contaTres);
+
+  cout << "Número de contas: " << Conta::getQtdContas() << endl;
+
+  return 0;
 }

@@ -2,4 +2,5 @@
 #include "Pessoa.hpp"
 #include <iostream>
 
-Titular::Titular(Cpf numCpf, std::string nome) : Pessoa(numCpf, nome) {}
+Titular::Titular(Cpf numCpf, std::string nome, std::string senha)
+    : Pessoa(numCpf, nome), Autenticavel(senha) {}

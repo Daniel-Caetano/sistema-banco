@@ -7,7 +7,7 @@ private:
   std::string numCpf;
 
 public:
-  Cpf(std::string cpf);
+  explicit Cpf(std::string cpf);
   std::string getCPF() const;
 
 private:
